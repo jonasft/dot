@@ -1,0 +1,9 @@
+git
+curl
+zsh
+nginx
+cmake
+direnv
+fzf
+jq
+unzip
