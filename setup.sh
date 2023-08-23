@@ -4,6 +4,20 @@
 git clone git@github.com:jonasft/dot.git
 cd dot
 
+RUN_ODA_ENV=false
+
+# Parse command line arguments
+for arg in "$@"
+do
+    case $arg in
+        --oda)
+        RUN_ODA_ENV=true
+        shift
+        ;;
+    esac
+done
+
+
 # Detect the operating system
 . ./os_type.sh
 if [[ -z "$OS" ]]; then
@@ -85,8 +99,10 @@ cp .gitconfig ~/
 # Copy the git ignore file
 cp .gitignore_global ~/
 
-# Set up the custom environment
-source oda_env.sh
+# Set up the optional custom environment
+if $RUN_ODA_ENV; then
+    source oda_env.sh
+fi
 
 # Refresh the shell
 exec zsh
