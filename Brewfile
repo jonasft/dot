@@ -11,3 +11,4 @@ brew "starship"
 
 cask "amethyst"
 cask "ngrok"
+cask "docker"

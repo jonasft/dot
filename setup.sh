@@ -52,6 +52,25 @@ if [[ $OS == "ubuntu" ]]; then
         sudo apt-get install -y $package
     done < ubuntu_packages.txt
 
+    # Install Docker
+    if ! command -v docker &> /dev/null
+    then
+        echo "Installing Docker..."
+        sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+        sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+        sudo apt-get install -y docker-ce
+        sudo usermod -aG docker $(whoami)
+    fi
+
+    # Install Docker Compose
+    if ! command -v docker-compose &> /dev/null
+    then
+        echo "Installing Docker Compose..."
+        sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        sudo chmod +x /usr/local/bin/docker-compose
+    fi
+
     # Install starship
     curl -fsSL https://starship.rs/install.sh | bash
 fi
