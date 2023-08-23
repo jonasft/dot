@@ -4,12 +4,6 @@
 
 This repository contains configuration files, scripts, and tools for setting up and managing Jonas's development environment.
 
-## Overview
-
-- **Dotfiles**: Essential configuration files for tools like git and zsh.
-- **Scripts**: Bash scripts to automate the installation and setup of necessary software, depending on the OS.
-- **Package Lists**: Lists of software packages to be installed for Ubuntu and MacOS.
-
 ## Prerequisites
 
 - **Git**: Ensure that Git is installed on your system to clone this repository.
@@ -32,10 +26,8 @@ This repository contains configuration files, scripts, and tools for setting up 
 
    ```zsh
    chmod +x setup.sh
-   ./setup.sh
+   ./setup.sh [--oda]
    ```
-
-   > **Note**: The script will attempt to identify whether you are running on a MacOS or Ubuntu system and act accordingly. Ensure you're running the script on one of these systems or be ready to make necessary modifications.
 
 3. **What the Setup Script Does**
 
@@ -45,14 +37,3 @@ This repository contains configuration files, scripts, and tools for setting up 
    - Depending on the OS:
      - **MacOS**: Installs packages and casks from the `Brewfile`.
      - **Ubuntu**: Installs packages listed in `ubuntu_packages.txt` and sets up additional tools like Docker.
-
-4. **Manual Steps**
-
-   After running the setup script, ensure to:
-
-   - Restart or open a new terminal for all changes to take effect.
-   - Check any additional configurations or aliases added to the `.zshrc`.
-
-## Contribution
-
-Feel free to fork this repository and customize it to your needs. Pull requests and enhancements are welcome.
