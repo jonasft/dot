@@ -15,14 +15,9 @@ then
   echo "ASDF - Installing..."
   
   if [[ "$OS" == "ubuntu" ]]; then
-    mkdir -p ~/repos
-    git clone https://github.com/asdf-vm/asdf.git ~/repos/.asdf
-    cd ~/repos/.asdf
-    # checkout latest tag, hopefully latest stable release
-    git checkout "$(git describe --abbrev=0 --tags)"
-    export PATH="$HOME/repos/.asdf/bin:$PATH"
-    echo '. $HOME/repos/.asdf/asdf.sh' >> ~/.zshrc
-    echo '. $HOME/repos/.asdf/completions/asdf.bash' >> ~/.zshrc
+    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
+    echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.zshrc
+    echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.zshrc
     source ~/.zshrc
   
   elif [[ "$OS" == "macos" ]]; then

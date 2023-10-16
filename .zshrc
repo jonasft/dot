@@ -28,8 +28,7 @@ fi
 # init apps
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
-eval "$(pyenv init --path)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # source other envs
-source $HOME/dot/oda_dev_tools.sh
+source $HOME/dot/oda_env.sh
